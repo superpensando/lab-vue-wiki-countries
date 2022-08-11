@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
     {
@@ -9,12 +9,12 @@ const routes = [
     {
       path: '/list',
       name: 'list',
-      component: () => import(/* webpackChunkName: 'list' */ './pages/CountriesList.vue'),
+      component: () => import(/* webpackChunkName: 'list' */ './components/CountriesList.vue'),
       children: [
         {
           path: '/details',
           name: 'details',
-          component: () => import(/* webpackChunkName: 'details' */ './pages/CountriesDetails.vue')
+          component: () => import(/* webpackChunkName: 'details' */ './components/CountriesDetails.vue')
         },
       ]
     }
@@ -27,5 +27,6 @@ const routes = [
       document.getElementById('app').scrollIntoView();
     }
   });
+
 
 export default router
