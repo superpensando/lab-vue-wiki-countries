@@ -1,5 +1,12 @@
 <template>
-    <CountriesList v-for="country in countries" :country="country" :key="country.id" />
+    <div class="countries">
+        <ul class="countries__list list-group">
+            <CountriesList v-for="country in countries" :country="country" :key="country.id" />
+        </ul>
+        <div class="countries__detail list-group">
+            <router-view />
+        </div>
+    </div>
 </template>
 
 <script>
@@ -15,6 +22,8 @@ export default {
     },
     methods: {
         async getCountries() {
+            //Pregunta--> Como puedo capturar el error con esta sintaxis?
+            await fetch("https://ih-countries-api.herokuapp.com/countries")
             const res = await fetch("https://ih-countries-api.herokuapp.com/countries");
             const finalRes = await res.json();
             finalRes.forEach(
@@ -23,7 +32,7 @@ export default {
                     this.countries.push(el);
                 }
             );
-            console.log(this.countries);
+            //console.log(this.countries);
 
         }
     },
@@ -37,4 +46,14 @@ export default {
 </script>
 
 <style>
+.countries {
+    display: flex;
+}
+.countries > * {
+    width: 50%;
+}
+.countries__list {
+    height:600px;
+    overflow-y:auto; 
+}
 </style>
