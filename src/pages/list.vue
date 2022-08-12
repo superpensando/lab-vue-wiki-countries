@@ -4,7 +4,7 @@
             <CountriesList v-for="country in countries" :country="country" :key="country.id" />
         </ul>
         <div class="countries__detail list-group">
-            <router-view />
+            <router-view :key="$route.fullPath" />
         </div>
     </div>
 </template>
@@ -36,10 +36,8 @@ export default {
 
         }
     },
-    mounted: function () {
-        this.$nextTick(function () {
+     mounted:function(){
             this.getCountries()
-        })
     }
 
 }
@@ -53,7 +51,7 @@ export default {
     width: 50%;
 }
 .countries__list {
-    height:600px;
+    max-height:800px;
     overflow-y:auto; 
 }
 </style>

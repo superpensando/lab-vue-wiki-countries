@@ -29,11 +29,9 @@ export default {
 
         }
     },
-    mounted() {
+    mounted:function(){
         this.id = this.$route.params.id;
-        this.$nextTick(function () {
-            this.getCountries()
-        })
+        this.getCountries();
     }
 }
 </script>
