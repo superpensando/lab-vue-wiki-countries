@@ -5,7 +5,7 @@
         <ul class="country-detail__list list-group">
             <li class="list-group-item">
                 <label>Capital</label>
-                <span>{{ countryDetail.capital }}</span>
+                <span>{{  countryDetail.capital[0] }}</span>
             </li>
             <li class="list-group-item">
                 <label>Area</label>
